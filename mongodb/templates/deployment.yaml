@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: roboshop
+  ## These are repllicaset labels
+  labels:
+    project: roboshop
+    component: mongodb
+    tier: database
+spec:
+  replicas: 1
+  selector:
+  ## These are used to select the pods.
+    matchLabels:
+      project: roboshop
+      component: mongodb
+      tier: database
+  ## Pod template
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        component: mongodb
+        tier: database
+    spec:
+      containers:
+      - name: mongodb
+        image: "{{ .Values.deployment.imageRepo }}:{{ .Values.deployment.imageVersion }}"
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 27017
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 27017
+          initialDelaySeconds: 5
+          periodSeconds: 5
+

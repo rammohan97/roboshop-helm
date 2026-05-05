@@ -1,0 +1,20 @@
+--- ## Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+  labels:
+    project: roboshop
+    component: mongodb
+    tier: database
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    project: roboshop
+    component: mongodb
+    tier: database
+  ports:
+    - protocol: TCP
+      port: 27017       # Service port
+      targetPort: 27017 # Container port
