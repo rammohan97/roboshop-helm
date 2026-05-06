@@ -3,4 +3,3 @@ name: mongodb   # Chart name
 version: 1.0.0   # chart version
 description: A Helm chart for MongoDB
 appVersion: v1   # application version
-
