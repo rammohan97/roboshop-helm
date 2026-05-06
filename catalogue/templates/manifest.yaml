@@ -6,7 +6,7 @@ metadata:
   namespace: roboshop
 data:
   MONGO: "true"
-  MONGO_URL: "{{ .Values.configMap.mongo-URL }}"
+  MONGO_URL: "{{ .Values.configMap.mongo_URL }}"
 
 
 --- #catalogue deployment
