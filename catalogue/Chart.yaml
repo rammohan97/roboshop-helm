@@ -1,0 +1,6 @@
+apiVersion: v2
+name: catalogue  # Chart Name
+version: 1.0.1   # Chart Version
+description: A Helm chart for catalogue microservice
+appVersion: v1   # Application Version
+
